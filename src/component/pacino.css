@@ -1,0 +1,25 @@
+.cursorPointer {
+    cursor: pointer!important;
+}
+
+.cont {
+    background-color: rgb(238, 238, 238);
+}
+
+.paginate {
+    
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    gap: 10px;
+}
+
+.paginate li {
+    padding: 5px 8px;
+    border: 1px solid gray;
+}
+.paginate li a {
+    text-decoration: none;
+    color: black;
+}
