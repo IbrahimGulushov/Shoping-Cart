@@ -1,28 +1,20 @@
 import { Route,Routes } from 'react-router-dom'
 import Allcom from './component/aLLcomp'
 import Details from './component/details';
-import Navbar from './component/navbar';
 import Cart from './component/cart';
+import NavItem from './component/NavItem';
+
 
 function App() {
  
   return (
       <>
+      < NavItem />
           <Routes>
               < Route path='/' element={< Allcom />} />
-              < Route path='/details/:id' element={
-                <div className='container'>
-                    <  Navbar />     
-                    < Details />
-                </div>
-              } />
+              < Route path='/details/:id' element={< Details />}/>
 
-              < Route path='/cart' element={
-                <div className='container'>
-                    <  Navbar />   
-                  < Cart />
-                </div>
-                 } />
+              < Route path='/cart' element={< Cart />} />
           </Routes>
       </>
   )

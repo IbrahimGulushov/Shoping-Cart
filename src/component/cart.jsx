@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeCart, totalAmountt, updateQuantity } from './redux/cart'
+
 
 
 
@@ -18,6 +18,8 @@ const Cart = () => {
     const dispatch = useDispatch()
 
     dispatch(totalAmountt())
+
+    let toplam = parseFloat(totalAmount).toFixed(1)
     
     const removeCartt = (id) => {
         dispatch(removeCart({ id }))
@@ -49,7 +51,7 @@ const Cart = () => {
                         {
                             loading ? <div> </div>
                                 : <div>
-                                    <table class="table table-bordered">
+                                    <table class=" container table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th scope="col" className='text-center'>Image</th>
@@ -68,16 +70,16 @@ const Cart = () => {
                                                         </div>
                                                     </td>
                                                     <td className=' fs-5 text-center'>{item.title}</td>
-                                                    <td className=' fs-5 text-center'>{item.price}</td>
+                                                    <td className=' fs-5 text-center fw-bold'>${item.price}</td>
                                                     <td>
-                                                        <div className='d-flex w-75 m-auto btn-group'>
+                                                        <div className='d-flex w-50 m-auto btn-group'>
                                                             <button className='btn btn-secondary' onClick={() => updateNewQuantity(item.id, item.quantity - 1)}>-</button>
                                                             <input type="text" className='border border-secondary form-control text-center' value={item.quantity} style={{ outline: "none", width: "50px" }} />
                                                             <button className='btn btn-secondary' onClick={() => updatePlusQuantity(item.id, item.quantity + 1)}>+</button>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div className='w-75 m-auto'>
+                                                        <div className='w-50 m-auto'>
 
                                                             <button onClick={() => removeCartt(item.id)} className='btn btn-danger'>Remove</button>
                                                         </div>
@@ -87,7 +89,7 @@ const Cart = () => {
                                         ))}
                                         <div className='container d-flex  justify-content-end  border-top border-1  position-fixed bottom-0'>
                                             <div className='box d-flex'>
-                                                <h3 className=' p-2'>Toplam Tutar: ${totalAmount}</h3>
+                                            <h3 className=' p-2'>Toplam Tutar: ${toplam}</h3>
                                             </div>
                                         </div>
                                     </table>

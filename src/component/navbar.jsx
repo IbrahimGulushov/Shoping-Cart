@@ -28,7 +28,7 @@ const Navbar = () => {
         <a href="/" className='navbar-brand fs-1'>SnopZon</a>
         <ul className='navbar-nav'>
             <li className='nav-item d-flex align-items-center gap-3'>
-                <input ref={search} type="text" className='form-control w-100 ' />
+                <input ref={search} type="text" className='form-control w-100' placeholder="Axtarış edin..." />
                 < FaSearch onClick={searchh} size={38} className='cursorPointer' />
                 < FaHeart size={38} className='cursorPointer'/>
 
